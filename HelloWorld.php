@@ -14,7 +14,7 @@ class HelloWorld
 
     public function hello($what = 'World')
     {
-        $stmt = $db->prepare("INSERT INTO hello VALUES (:what)");
+        $stmt = $this->pdo->prepare("INSERT INTO hello VALUES (:what)");
         $stmt->bindValue(":what", $what);
         $stmt->execute();
         $stmt->rowCount();
