@@ -14,8 +14,10 @@ class HelloWorld
 
     public function hello($what = 'World')
     {
-        $sql = "INSERT INTO hello VALUES (" . $this->pdo->quote($what) . ")";
-        $this->pdo->query($sql);
+        $stmt = $db->prepare("INSERT INTO hello VALUES (:what)");
+        $stmt->bindValue(":what", $what);
+        $stmt->execute();
+        $stmt->rowCount();
         return "Hello $what";
     }
 
