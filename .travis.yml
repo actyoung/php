@@ -21,6 +21,10 @@ env:
   - DB=mysql
   - DB=pgsql
 
+install:
+  - pyrus install pear/PHP_CodeSniffer
+  - phpenv rehash
+
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
   - if [[ "$DB" == "pgsql" ]]; then psql -c "DROP DATABASE IF EXISTS hello_world_test;" -U postgres; fi
