@@ -35,7 +35,7 @@ before_script:
 # use the $DB env variable to determine the phpunit.xml to use
 script:
   - phpunit --configuration phpunit_$DB.xml --coverage-text
-  - phpcs --report=full --extensions=php -p .
+  - phpcs ./
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
